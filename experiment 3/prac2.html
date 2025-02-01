@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>USING TABLES IN WEBSITES</h1>
+        <table border="1">
+            <caption>Caption Nested Table</caption>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+            <tr>
+                <td colspan="2">Colspan Column</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Rowspan Cell</td>
+                <td>Cell 2</td>
+            </tr>
+            <tr>
+                <td>
+                    <table border="1" cellspacing="10px" cellpadding="10px" bgcolor="yellow">
+                        <tr bgcolor="yellow">
+                            <th>Inner Column Heading 1</th>
+                            <th>Inner Column Heading 2</th>
+                        </tr>
+                        <tr>
+                            <td bgcolor="grey">Inner Data Cell 1</td>
+                            <td bgcolor="#adff30">
+                                <table border="2" bgcolor="pink" cellspacing="10px" cellpadding="10px" border="5px pink">
+                                    <tr>
+                                        <th>Inner Most Column Heading 1</th>
+                                        <th>Inner Most Column Heading 2</th>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="violet">Inner Most Data Cell 1</td>
+                                        <td bgcolor="tomato">Inner Most Data Cell 2</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
