@@ -1,0 +1,14 @@
+body {
+    background-color: lawngreen;
+}
+
+form {
+    background-color: rgb(193, 253, 132);
+    border: 2px solid red;
+    width: fit-content;
+    padding: 50px 100px;
+}
+
+h1 {
+    color: red;
+}
