@@ -1,0 +1,75 @@
+body {
+    font-family: Georgia, Cambria, "Times New Roman", serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('green.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+ 
+nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: whitesmoke;
+    padding: 15px 20px;
+}
+ 
+.logo {
+    color: #213643;
+    font-size: 24px;
+    font-weight: bold;
+}
+ 
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #213643;
+    font-size: 16px;
+    font-weight: 500;
+}
+ 
+.nav-links a:hover {
+    color: green;
+    border-bottom: 2px solid green;
+}
+
+.p1 {
+    font-family: sans-serif;
+    color: #213643;
+    font-size: 35px;
+    font-weight: 500;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.p2 {
+    font-family: sans-serif;
+    color: #213643;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.p3 {
+    font-family: sans-serif;
+    color: #213643;
+    font-size: 13px;
+    font-weight: 100;
+    text-align: center;
+}
+
+button {
+    background-color: green;
+    margin-top: 20px;
+    margin-left: 640px;
+    padding: 15px;
+    border: none;
+    border-radius: 2px;
+    color: white;
+}
