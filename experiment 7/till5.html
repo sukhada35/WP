@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript Programs</h2>
+
+    <button onclick="findTriangleArea()">Find Triangle Area</button>
+    <button onclick="computeSum()">Compute Sum</button>
+    <button onclick="reverseNumber()">Reverse Number</button>
+    <button onclick="capitalizeWords()">Capitalize Words</button>
+    <button onclick="findLargest()">Find Largest Number</button>
+
+    <script>
+        //Find the Area of a Triangle using Heron's Formula
+        function findTriangleArea() {
+            let a = 5, b = 6, c = 7;
+            let s = (a + b + c) / 2;
+            let area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+            alert("The area of the triangle is: " + area.toFixed(2));
+        }
+
+        //Compute the Sum of Two Integers (Triple Sum if Same)
+        function computeSum() {
+            let num1 = parseInt(prompt("Enter first number:"));
+            let num2 = parseInt(prompt("Enter second number:"));
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            let result = (num1 === num2) ? 3 * (num1 + num2) : num1 + num2;
+            alert("The computed sum is: " + result);
+        }
+
+        //Reverse a Number (User Input)
+        function reverseNumber() {
+            let num = prompt("Enter a number:");
+
+            if (isNaN(num)) {
+                alert("Please enter a valid number.");
+                return;
+            }
+
+            let reversedNum = num.split("").reverse().join("");
+            alert("Reversed Number: " + reversedNum);
+        }
+
+        //Capitalize First Letter of Each Word in a String
+        function capitalizeWords() {
+            let inputStr = prompt("Enter a sentence:");
+            
+            if (!inputStr) {
+                alert("Input cannot be empty!");
+                return;
+            }
+
+            let words = inputStr.split(" ");
+            let capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+            let result = capitalizedWords.join(" ");
+            
+            alert("Capitalized String: " + result);
+        }
+
+        //Find the Largest of Five Numbers
+        function findLargest() {
+            let numbers = [];
+
+            for (let i = 1; i <= 5; i++) {
+                let num = parseFloat(prompt("Enter number " + i + ":"));
+
+                if (isNaN(num)) {
+                    alert("Please enter valid numbers.");
+                    return;
+                }
+
+                numbers.push(num);
+            }
+
+            let largest = Math.max(...numbers);
+            alert("The largest number is: " + largest);
+        }
+    </script>
+
+</body>
+</html>

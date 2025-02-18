@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        table {
+            width: 50%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Grades Calculation</h2>
+
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Marks</th>
+        </tr>
+        <tr>
+            <td>David</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>Vinoth</td>
+            <td>77</td>
+        </tr>
+        <tr>
+            <td>Divya</td>
+            <td>88</td>
+        </tr>
+        <tr>
+            <td>Ishitha</td>
+            <td>95</td>
+        </tr>
+        <tr>
+            <td>Thomas</td>
+            <td>68</td>
+        </tr>
+    </table>
+
+    <button onclick="calculateGrade()">Calculate Average & Grade</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateGrade() {
+            let marks = [80, 77, 88, 95, 68];  // Marks of students
+            let total = marks.reduce((sum, mark) => sum + mark, 0);
+            let average = total / marks.length;
+
+            let grade = "";
+            if (average < 60) {
+                grade = "F";
+            } else if (average < 70) {
+                grade = "D";
+            } else if (average < 80) {
+                grade = "C";
+            } else if (average < 90) {
+                grade = "B";
+            } else {
+                grade = "A";
+            }
+
+            document.getElementById("result").innerHTML = 
+                `Average Marks: ${average.toFixed(2)} <br> Grade: ${grade}`;
+        }
+    </script>
+</body>
+</html>
