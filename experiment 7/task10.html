@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        input { width: 250px; padding: 5px; margin-bottom: 10px; display: block; }
+        button { padding: 8px 15px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>Form Validation</h2>
+    <form onsubmit="return validateForm()">
+        <label>Name:</label>
+        <input type="text" id="name">
+
+        <label>Age:</label>
+        <input type="text" id="age">
+
+        <label>Phone Number:</label>
+        <input type="text" id="phone">
+
+        <label>Email:</label>
+        <input type="text" id="email">
+
+        <label>Password:</label>
+        <input type="password" id="password">
+
+        <label>Date (YYYY-MM-DD):</label>
+        <input type="text" id="date">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let phone = document.getElementById("phone").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let date = document.getElementById("date").value;
+
+            let namePattern = /^[A-Za-z ]+$/;
+            let agePattern = /^[0-9]+$/;
+            let phonePattern = /^[0-9]{10}$/;
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            let passwordPattern = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
+            let datePattern = /^\d{4}-\d{2}-\d{2}$/;
+
+            if (!namePattern.test(name)) {
+                alert("Name should contain only letters.");
+                return false;
+            }
+            if (!agePattern.test(age)) {
+                alert("Age should be a number.");
+                return false;
+            }
+            if (!phonePattern.test(phone)) {
+                alert("Phone number should be exactly 10 digits.");
+                return false;
+            }
+            if (!emailPattern.test(email)) {
+                alert("Enter a valid email address.");
+                return false;
+            }
+            if (!passwordPattern.test(password)) {
+                alert("Password should be at least 6 characters, include 1 uppercase letter and 1 number.");
+                return false;
+            }
+            if (!datePattern.test(date)) {
+                alert("Enter a valid date in YYYY-MM-DD format.");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>
