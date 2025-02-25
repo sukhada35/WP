@@ -1,0 +1,44 @@
+<!-- Write an AngularJS script to print details of bank (bank name, MICR code, IFC code, address etc.) 
+in tabular form using ng-repeat -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Bank Details</title>
+</head>
+<body ng-app="bankApp" ng-controller="bankController">
+
+    <h2>Bank Details</h2>
+
+    <table border="1">
+        <tr>
+            <th>Bank Name</th>
+            <th>MICR Code</th>
+            <th>IFSC Code</th>
+            <th>Address</th>
+        </tr>
+        <tr ng-repeat="bank in banks">
+            <td>{{ bank.name }}</td>
+            <td>{{ bank.micr }}</td>
+            <td>{{ bank.ifsc }}</td>
+            <td>{{ bank.address }}</td>
+        </tr>
+    </table>
+
+    <h3>Total Banks: {{ banks.length }}</h3>
+    <script>
+        var app = angular.module("bankApp", []);
+        app.controller("bankController", function($scope) {
+            $scope.banks = [    
+                { name: "State Bank of India", micr: "400002032", ifsc: "SBIN0001234", address: "Mumbai, India" },
+                { name: "HDFC Bank", micr: "400240003", ifsc: "HDFC0005678", address: "Pune, India" },
+                { name: "ICICI Bank", micr: "110229003", ifsc: "ICIC0002345", address: "Delhi, India" },
+                { name: "Axis Bank", micr: "600002015", ifsc: "AXIS0007890", address: "Chennai, India" }
+            ];
+        });
+    </script>
+</body>
+</html>
