@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Date Filter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="dateApp" ng-controller="dateController">
+
+    <h2>AngularJS Date Filter Example</h2>
+    
+    <p><strong>Default Date:</strong> {{ currentDate }}</p>
+    <p><strong>Short Date:</strong> {{ currentDate | date:'short' }}</p>    
+    <p><strong>Medium Date:</strong> {{ currentDate | date:'medium' }}</p>
+    <p><strong>Long Date:</strong> {{ currentDate | date:'long' }}</p>
+    <p><strong>Full Date:</strong> {{ currentDate | date:'fullDate' }}</p>
+    <p><strong>Custom Format (dd-MM-yyyy):</strong> {{ currentDate | date:'dd-MM-yyyy' }}</p>
+    <p><strong>Time Only:</strong> {{ currentDate | date:'hh:mm:ss a' }}</p>
+
+    <script>
+        var app = angular.module("dateApp", []);
+        app.controller("dateController", function($scope) {
+            $scope.currentDate = new Date(); // Getting the current date and time
+        });
+    </script>
+
+</body>
+</html>

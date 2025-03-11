@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Shopping List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f3f3f3;
+            padding: 10px;
+            margin: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body ng-app="shoppingApp" ng-controller="shoppingController">
+
+    <div class="container">
+        <h2>Shopping List</h2>
+
+        <input type="text" ng-model="newItem" placeholder="Enter item name" />
+        <button ng-click="addItem()">Add Item</button>
+
+        <ul>
+            <li ng-repeat="item in shoppingList">
+                {{ item }}
+                <button ng-click="removeItem($index)">X</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var app = angular.module("shoppingApp", []);
+
+        app.controller("shoppingController", function($scope) {
+            // Default shopping list items
+            $scope.shoppingList = ["Milk", "Bread", "Eggs", "Fruits"];
+
+            // Function to add an item
+            $scope.addItem = function() {
+                if ($scope.newItem) {
+                    $scope.shoppingList.push($scope.newItem);
+                    $scope.newItem = ""; // Clear input field
+                }
+            };
+
+            // Function to remove an item
+            $scope.removeItem = function(index) {
+                $scope.shoppingList.splice(index, 1);
+            };
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likes/Dislikes Counter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body ng-app="likesApp" ng-controller="likesController">
+
+    <h2>Like & Dislike System</h2>
+
+    <button ng-mousedown="increaseLikes()">👍 Like ({{likes}})</button>
+    <button ng-mousedown="increaseDislikes()">👎 Dislike ({{dislikes}})</button>
+
+    <script>
+        var app = angular.module("likesApp", []);
+        app.controller("likesController", function($scope) {
+            $scope.likes = 0;
+            $scope.dislikes = 0;
+
+            $scope.increaseLikes = function() {
+                $scope.likes++;
+            };
+
+            $scope.increaseDislikes = function() {
+                $scope.dislikes++;
+            };
+        });
+    </script>
+
+</body>
+</html>

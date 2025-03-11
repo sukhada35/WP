@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Form Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        input, select, button {
+            margin: 10px 0;
+            padding: 8px;
+        }
+        span {
+            color: red;
+            display: block;
+        }
+    </style>
+</head>
+<body ng-app="mainApp" ng-controller="formController">
+
+<h2>AngularJS Form Validation</h2>
+
+    <form name="userForm" novalidate>
+
+        <!-- Username Field -->
+        <div>
+            Username:
+            <input name="username" type="text" ng-model="username" required ng-pattern="/^[A-Z][A-Za-z]*$/" />
+            <span ng-show="userForm.username.$dirty && userForm.username.$invalid">
+                <span ng-show="userForm.username.$error.required">Username is required.</span>
+                <span ng-show="userForm.username.$error.pattern">Username must start with a capital letter and contain only alphabets.</span>
+            </span>
+        </div>
+
+        <!-- Password Field -->
+        <div>
+            Password:
+            <input name="password" type="password" ng-model="password" required ng-minlength="5" ng-maxlength="15" ng-pattern="/^[A-Za-z0-9]+$/" />
+            <span ng-show="userForm.password.$dirty && userForm.password.$invalid">
+                <span ng-show="userForm.password.$error.required">Password is required.</span>
+                <span ng-show="userForm.password.$error.minlength">Password must be at least 5 characters long.</span>
+                <span ng-show="userForm.password.$error.maxlength">Password must be at most 15 characters long.</span>
+                <span ng-show="userForm.password.$error.pattern">Password must be alphanumeric.</span>
+            </span>
+        </div>
+
+        <!-- Confirm Password Field -->
+        <div>
+            Confirm Password:
+            <input name="confirmPassword" type="password" ng-model="confirmPassword" required ng-minlength="5" ng-maxlength="15" ng-pattern="/^[A-Za-z0-9]+$/" />
+            <span ng-show="userForm.confirmPassword.$dirty && userForm.confirmPassword.$invalid">
+                <span ng-show="userForm.confirmPassword.$error.required">Confirm Password is required.</span>
+                <span ng-show="userForm.confirmPassword.$error.pattern">Confirm Password must be alphanumeric.</span>
+                <span ng-show="userForm.confirmPassword.$error.minlength">Confirm Password must be at least 5 characters long.</span>
+            </span>
+        </div>
+
+        <!-- Email Field -->
+        <div>
+            Email:
+            <input name="email" type="email" ng-model="email" required />
+            <span ng-show="userForm.email.$dirty && userForm.email.$invalid">
+                <span ng-show="userForm.email.$error.required">Email is required.</span>
+                <span ng-show="userForm.email.$error.email">Invalid email address.</span>
+            </span>
+        </div>
+
+        <!-- Checkbox Field -->
+        <div>
+            Accept Terms:
+            <input name="terms" type="checkbox" ng-model="terms" required/>
+            <span ng-show="userForm.terms.$dirty && userForm.terms.$invalid">
+                <span ng-show="userForm.terms.$error.required">You must accept the terms.</span>
+            </span>
+        </div>
+
+        <!-- Radio Button Field -->
+        <div>
+            Gender:
+            <label><input type="radio" name="gender" ng-model="gender" value="Male" required /> Male</label>
+            <label><input type="radio" name="gender" ng-model="gender" value="Female" required /> Female</label>
+            <span ng-show="userForm.gender.$dirty && userForm.gender.$error.required">
+                Please select a gender.
+            </span>
+        </div>
+
+        <!-- Dynamic Dropdown -->
+        <div>
+            Country:
+            <select name="selectedCountry" ng-model="selectedCountry" required>
+                <option value="">Select Country</option>
+                <option ng-repeat="country in countries" value="{{country}}">{{country}}</option>
+            </select>
+            <span ng-show="userForm.selectedCountry.$dirty && userForm.selectedCountry.$error.required">
+                Please select a country.
+            </span>
+        </div>
+
+        <!-- Phone Number Field -->
+        <div>
+            Phone Number:
+            <input name="phone" type="text" ng-model="phone" required ng-pattern="/^\d{10}$/" />
+            <span ng-show="userForm.phone.$dirty && userForm.phone.$invalid">
+                <span ng-show="userForm.phone.$error.required">Phone number is required.</span>
+                <span ng-show="userForm.phone.$error.pattern">Phone number must be 10 digits.</span>
+            </span>
+        </div>
+
+        <!-- PAN Card Field -->
+        <div>
+            PAN Card:
+            <input name="pan" type="text" ng-model="pan" required ng-pattern="/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/" />
+            <span ng-show="userForm.pan.$dirty && userForm.pan.$invalid">
+                <span ng-show="userForm.pan.$error.required">PAN card is required.</span>
+                <span ng-show="userForm.pan.$error.pattern">Invalid PAN card format.</span>
+            </span>
+        </div>
+
+        <div>
+            <button ng-disabled="userForm.$invalid" ng-click="submitForm()">Submit</button>
+        </div>
+
+    </form>
+
+
+<script>
+    var mainApp = angular.module("mainApp", []);
+
+    mainApp.controller("formController", function($scope) {
+        // Dynamic Dropdown Data
+        $scope.countries = ["India", "USA", "UK", "Australia", "Canada"];
+
+        // Submit Form Function
+        $scope.submitForm = function() {
+            if ($scope.userForm.$valid) {
+                alert("Form submitted successfully!");
+            } else {
+                alert("Please fill all required fields correctly.");
+            }
+        };
+    });
+</script>
+
+</body>
+</html>
