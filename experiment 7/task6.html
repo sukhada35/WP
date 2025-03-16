@@ -1,3 +1,5 @@
+<!-- Write a JavaScript program which compute, the average marks of the following students Then, this average is
+used to determine the corresponding grade. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +68,8 @@
     <h3 id="result"></h3>
 
     <script>
-        function calculateGrade() {
+        function calculateGrade() 
+        {
             let marks = [80, 77, 88, 95, 68];  // Marks of students
             let total = marks.reduce((sum, mark) => sum + mark, 0);
             let average = total / marks.length;
@@ -85,7 +88,8 @@
             }
 
             document.getElementById("result").innerHTML = 
-                `Average Marks: ${average.toFixed(2)} <br> Grade: ${grade}`;
+                `Average Marks: ${average.toFixed(2)} 
+                <br> Grade: ${grade}`;
         }
     </script>
 </body>

@@ -42,13 +42,15 @@
             let area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
             alert("The area of the triangle is: " + area.toFixed(2));
         }
-
+ //2.	Write a JavaScript program to compute the sum of the two given integers. If the two values are same, then returns triple their sum
         //Compute the Sum of Two Integers (Triple Sum if Same)
-        function computeSum() {
+        function computeSum() 
+        {
             let num1 = parseInt(prompt("Enter first number:"));
             let num2 = parseInt(prompt("Enter second number:"));
 
-            if (isNaN(num1) || isNaN(num2)) {
+            if (isNaN(num1) || isNaN(num2))  //isNaN() function is used to check if a value is NaN (Not-a-Number) or not.   
+            {
                 alert("Please enter valid numbers.");
                 return;
             }
