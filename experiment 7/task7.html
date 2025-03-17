@@ -12,12 +12,36 @@
     <pre id="pattern"></pre>
 
     <script>
-        function printPattern() {
+        function printPattern() 
+        {
             let result = "";
-            for (let i = 1; i <= 5; i++) {
-                for (let j = 1; j <= i; j++) {
+            for (let i = 1; i <= 5; i++) 
+            {
+                for (let j = 1; j <= 5 - i; j++) 
+                {
+                    result += " ";
+                }
+                for(let k = 1; k <= 2 * i - 1; k++)
+                {
                     result += "*";
                 }
+                result += "\n";  // Move to the next line after each row
+            }
+            document.getElementById("pattern").innerText = result;
+        }
+        function printPattern() 
+        {
+            let result = "";
+            for (let i = 1; i <= 5; i++) 
+            {
+                for (let j = 1; j <= i; j++) 
+                {
+                    result += "*";
+                }
+                // for(let k = 1; k <= 2 * i - 1; k++)
+                // {
+                //     result += "*";
+                // }
                 result += "\n";  // Move to the next line after each row
             }
             document.getElementById("pattern").innerText = result;
