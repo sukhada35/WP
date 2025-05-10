@@ -35,7 +35,7 @@
     <button onclick="calculate('-')">-</button>
     <button onclick="calculate('*')">×</button>
     <button onclick="calculate('/')">÷</button>
-
+    
     <h3>Result: <span id="result">0</span></h3>
 
     <script>
@@ -63,7 +63,7 @@
                 default: result = "Invalid Operation";
             }
 
-            document.getElementById("result").textContent = result;
+            document.getElementById("result").textContent = result; // can write innerHTML
         }
     </script>
 

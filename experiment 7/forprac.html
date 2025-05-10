@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,63 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p id="demo">ehheheh</p>
+    <button type="button" onclick="myfunction('sukhada')">click me</button>
+    <button type="button" onclick="window.alert(6+5)">HEHEH</button>
+</body>
+
+<script>
+    function myfunction(str){
+        document.getElementById("demo").innerHTML = str;
+        
+    }
+</script>
+</html> -->
+<!-- Write a JavaScript program which compute, the average marks of the following students Then, this average is
+used to determine the corresponding grade. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Average Grade Calculator</title>
+</head>
+<body>
+    <button onclick="cal()">Calculate Grade</button>
+
+    <script>
+        function cal() {
+            let marks = [];
+
+            for (let i = 1; i <= 3; i++) {
+                let input = parseInt(prompt("Enter marks for subject " + i + ":"));
+
+                if (isNaN(input)) {
+                    alert("Please enter a valid number!");
+                    return;
+                }
+
+                marks.push(input);
+            }
+
+            let total = marks[0] + marks[1] + marks[2];
+            let average = total / 3;
+            let grade = "";
+
+            if (average >= 90) {
+                grade = "A";
+            } else if (average >= 80) {
+                grade = "B";
+            } else if (average >= 70) {
+                grade = "C";
+            } else if (average >= 60) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            alert("Average: " + average.toFixed(2) + "\nGrade: " + grade);
+        }
+    </script>
 </body>
 </html>
