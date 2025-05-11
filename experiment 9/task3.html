@@ -68,3 +68,81 @@ of 5 students  and print the details in tabular format . Also it should print th
 
 </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html lang="en" ng-app="studentApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form with Percentage & Grade</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="studentController">
+
+    <h2>Student Details Form</h2>
+
+    <div ng-repeat="student in students">
+        <h3>Student {{$index + 1}}</h3>
+        <label>Name: <input type="text" ng-model="student.name"></label><br>
+        <label>Roll No: <input type="text" ng-model="student.rollno"></label><br>
+        <label>Class: <input type="text" ng-model="student.class"></label><br>
+        <label>Subject 1 Marks: <input type="number" ng-model="student.sub1"></label><br>
+        <label>Subject 2 Marks: <input type="number" ng-model="student.sub2"></label><br>
+        <label>Subject 3 Marks: <input type="number" ng-model="student.sub3"></label><br><br>
+    </div>
+
+    <button ng-click="calculate()">Submit & Calculate</button>
+
+    <h2>Student Report</h2>
+    <table border="5" cellpadding="5" >
+        <tr >
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Class</th>
+            <th>Subject 1</th>
+            <th>Subject 2</th>
+            <th>Subject 3</th>
+            <th>Percentage</th>
+            <th>Grade</th>
+        </tr>
+        <tr ng-repeat="student in students">
+            <td>{{student.name}}</td>
+            <td>{{student.rollno}}</td>
+            <td>{{student.class}}</td>
+            <td>{{student.sub1}}</td>
+            <td>{{student.sub2}}</td>
+            <td>{{student.sub3}}</td>
+            <td>{{student.percentage}}%</td>
+            <td>{{student.grade}}</td>
+        </tr>
+    </table>
+
+    <script>
+        var app = angular.module("studentApp", []);
+        app.controller("studentController", function($scope) {
+            // Initialize 5 empty students
+            $scope.students = new Array(5).fill().map(() => ({
+                name: '', rollno: '', class: '',
+                sub1: 0, sub2: 0, sub3: 0,
+                percentage: 0, grade: ''
+            }));
+
+            $scope.calculate = function() {
+                $scope.students.forEach(function(student) {
+                    var total = Number(student.sub1) + Number(student.sub2) + Number(student.sub3);
+                    student.percentage = (total / 3).toFixed(2);
+
+                    if (student.percentage >= 75)
+                        student.grade = 'A';
+                    else if (student.percentage >= 60)
+                        student.grade = 'B';
+                    else if (student.percentage >= 50)
+                        student.grade = 'C';
+                    else
+                        student.grade = 'D';
+                });
+            };
+        });
+    </script>
+
+</body>
+</html> -->

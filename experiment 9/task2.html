@@ -26,12 +26,19 @@
         </tr>
     </table>
 
+    <ul>
+        <li ng-repeat="emp in employees | orderBy:'salary'">
+            {{emp.name}} {{emp.designation}}  {{emp.salary | currency: "Rs"}}
+        </li>
+    </ul>
+
     <script>
         var app = angular.module("employeeApp", []);
         app.controller("employeeController", function($scope) {
             $scope.employees = [
                 { name: "Sukhada Gulhane", designation: "Software Engineer", salary: 75000 },
                 { name: "Ashmit Jain", designation: "Project Manager", salary: 120000 },
+                { name: "Ashmit Jain", designation: "Project Manager", salary: 12000 },
             ];
         });
     </script>

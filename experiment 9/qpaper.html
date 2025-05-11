@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="orderApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Place Order</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="orderController">
+
+    <h2>Food Order Table</h2>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Food Items</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tr ng-repeat="item in products">
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>
+                <input type="number" min="0" ng-model="item.quantity">
+            </td>
+        </tr>
+    </table><br>
+
+    <button ng-click="calculateTotal()">Place Order</button>
+
+    <h3>Total amount to be paid: {{total}}</h3>
+
+    <script>
+        var app = angular.module("orderApp", []);
+        app.controller("orderController", function($scope) {
+            $scope.products = [
+                { name: 'Pizza', price: 100, quantity: 1 },
+                { name: 'Pasta', price: 150, quantity: 1 },
+                { name: 'Bread', price: 170, quantity: 1 },
+                { name: 'Sandwich', price: 200, quantity: 1 },
+                { name: 'Ice Cream', price: 250, quantity: 1 }
+            ];
+
+            $scope.total = 0;
+
+            $scope.calculateTotal = function() {
+                $scope.total = 0;
+                $scope.products.forEach(function(item) {
+                    $scope.total += item.price * item.quantity;
+                });
+            };
+        });
+    </script>
+
+</body>
+</html>
