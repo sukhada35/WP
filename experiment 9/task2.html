@@ -1,0 +1,39 @@
+<!-- Using Angular js display the employee details order by salary and “Rs” to be
+ appended in the salary figure .  -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Employee Details (Sorted by Salary)</title>
+</head>
+<body ng-app="employeeApp" ng-controller="employeeController">
+
+    <h2>Employee Details (Ordered by Salary)</h2>
+
+    <table border="1">
+        <tr>
+            <th>Employee Name</th>
+            <th>Designation</th>
+            <th>Salary</th>
+        </tr>
+        <tr ng-repeat="emp in employees | orderBy:'salary'">
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.designation }}</td>
+            <td>{{ emp.salary | currency:" Rs " }}</td> <!-- Appends 'Rs' to salary -->
+        </tr>
+    </table>
+
+    <script>
+        var app = angular.module("employeeApp", []);
+        app.controller("employeeController", function($scope) {
+            $scope.employees = [
+                { name: "Sukhada Gulhane", designation: "Software Engineer", salary: 75000 },
+                { name: "Ashmit Jain", designation: "Project Manager", salary: 120000 },
+            ];
+        });
+    </script>
+</body>
+</html>

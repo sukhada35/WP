@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List using ng-repeat with Controller</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="courselist_app" ng-controller="courselist_ctrl">
+
+    <p><b>Undergraduate Courses</b></p>
+    <ol type="i">
+        <li ng-repeat="x in Ug">{{ x }}</li>
+    </ol>
+
+    <p><b>Postgraduate Courses</b></p>
+    <ol type="i">
+        <li ng-repeat="x in Pg">{{ x }}</li>
+    </ol>
+
+    <script>
+        var app = angular.module("courselist_app", []);
+        app.controller("courselist_ctrl", function ($scope) {
+            $scope.Ug = ["BBA(CA)", "BCA(Science)", "B.SC(Computer Science)"];
+            $scope.Pg = ["M.Sc(Computer Science)", "M.Sc(CA)"];
+        });
+    </script>
+</body>
+</html>

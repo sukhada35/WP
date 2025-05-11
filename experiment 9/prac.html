@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="marksApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Marks</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="marksController">
+
+    <h2>Marks Scored in Six Subjects</h2>
+    
+    <ul>
+        <li ng-repeat="subject in subjects">
+            {{ subject.name }}: {{ subject.marks }}
+        </li>
+    </ul>
+
+    <script>
+        var app = angular.module("marksApp", []);
+        app.controller("marksController", function($scope) {
+            $scope.subjects = [
+                { name: "Mathematics", marks: 95 },
+                { name: "Physics", marks: 88 },
+                { name: "Chemistry", marks: 92 },
+                { name: "English", marks: 85 },
+                { name: "Biology", marks: 90 },
+                { name: "Computer Science", marks: 98 }
+            ];
+        });
+    </script>
+
+</body>
+</html>
