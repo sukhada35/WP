@@ -58,9 +58,10 @@
         <!-- Email Field -->
         <div>
             Email:
-            <input name="email" type="email" ng-model="email" required />
+            <input name="email" type="email" ng-model="email" required ng-pattern="/^ [a-zA-Z0-9._+]+@[A-Za-z0-9]+\.[A-Za-z]{2,} $/"/>
             <span ng-show="userForm.email.$dirty && userForm.email.$invalid">
                 <span ng-show="userForm.email.$error.required">Email is required.</span>
+                <span ng-show="userForm.email.$error.pattern">Invalid email format.</span>
                 <span ng-show="userForm.email.$error.email">Invalid email address.</span>
             </span>
         </div>

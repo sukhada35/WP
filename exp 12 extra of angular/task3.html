@@ -1,0 +1,29 @@
+<!-- 3.	Create an Angular value that holds a string message (e.g., "Welcome to Angular!"). Inject this value into a 
+component and display it in the template. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Value Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="valueApp">
+    <h1>AngularJS Value Example</h1>
+
+    <div ng-controller="MessageController">
+        <h2>{{ message }}</h2>
+    </div>
+
+    <script>
+        var app = angular.module("valueApp", []);
+
+        app.value("welcomeMessage", "Welcome to Angular!");
+
+        app.controller("MessageController", function($scope, welcomeMessage) 
+        {
+            $scope.message = welcomeMessage;
+        });
+    </script>
+</body>
+</html>

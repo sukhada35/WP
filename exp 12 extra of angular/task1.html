@@ -1,0 +1,94 @@
+<!-- 1.	Create an AngularJS module named dependencyInjectionApp. Define a service 
+named MathService that provides basic arithmetic operations. Create controllers 
+named AdditionController, SubtractionController, multiplicationController, and
+ DivisionController. Inject the MathService into each controller and perform the 
+ respective arithmetic operation. Display the result in the HTML using AngularJS 
+ expressions.<! -->
+
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Dependency Injection</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="dependencyInjectionApp">
+    <h1>Basic Arithmetic Operations</h1>
+    
+    Enter Number 1: <input type="number" ng-model="num1"><br>
+    Enter Number 2: <input type="number" ng-model="num2"><br>
+    
+    <div ng-controller="AdditionController">
+        <p>Addition: {{ add(num1, num2) }}</p>
+    </div>
+    
+    <div ng-controller="SubtractionController">
+        <p>Subtraction: {{ subtract(num1, num2) }}</p>
+    </div>
+    
+    <div ng-controller="MultiplicationController">
+        <p>Multiplication: {{ multiply(num1, num2) }}</p>
+    </div>
+    
+    <div ng-controller="DivisionController">
+        <p>Division: {{ divide(num1, num2) }}</p>
+    </div>
+    
+    <script>
+        var app = angular.module("dependencyInjectionApp", []);
+
+        app.service('MathService', function() 
+        {
+            this.add = function(a, b) 
+            {
+                return (a || 0) + (b || 0);
+            };
+            this.subtract = function(a, b) 
+            {
+                return (a || 0) - (b || 0);
+            };
+            this.multiply = function(a, b) 
+            {
+                return (a || 0) * (b || 0);
+            };
+            this.divide = function(a, b) 
+            {
+                return b ? (a / b) : 'Undefined';
+            };
+        });
+
+        app.controller('AdditionController', function($scope, MathService) 
+        {
+            $scope.add = function(a, b) 
+            {
+                return MathService.add(a, b);
+            };
+        });
+
+        app.controller('SubtractionController', function($scope, MathService) 
+        {
+            $scope.subtract = function(a, b) 
+            {
+                return MathService.subtract(a, b);
+            };
+        });
+
+        app.controller('MultiplicationController', function($scope, MathService) 
+        {
+            $scope.multiply = function(a, b) 
+            {
+                return MathService.multiply(a, b);
+            };
+        });
+
+        app.controller('DivisionController', function($scope, MathService) 
+        {
+            $scope.divide = function(a, b) 
+            {
+                return MathService.divide(a, b);
+            };
+        });
+    </script>
+</body>
+</html>

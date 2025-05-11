@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Factory Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="factoryApp">
+    <h1>Product Details</h1>
+
+    <div ng-controller="ProductController">
+        <p><strong>Name:</strong> {{ product.name }}</p>
+        <p><strong>Price:</strong> ₹{{ product.price }}</p>
+        <p><strong>Category:</strong> {{ product.category }}</p>
+    </div>
+
+    <script>
+        var app = angular.module("factoryApp", []);
+
+        app.factory("ProductFactory", function() 
+        {
+            return {
+                createProduct: function(name, price, category) 
+                {
+                    return {
+                        name: name,
+                        price: price,
+                        category: category
+                    };
+                }
+            };
+        });
+
+        app.controller("ProductController", function($scope, ProductFactory) 
+        {
+            $scope.product = ProductFactory.createProduct("Smartphone", 30000, "Electronics");
+        });
+    </script>
+</body>
+</html>

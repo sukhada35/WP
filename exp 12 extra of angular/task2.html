@@ -1,0 +1,38 @@
+<!-- 2.	Write a factory method for square of a number. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Factory</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="main_app" ng-controller="main_controller">
+    <h1>Square Using Factory</h1>
+    Enter Number: <input type="number" ng-model="num">
+    <p>Square: {{ square(num) }}</p>
+
+    <script>
+        var main_app = angular.module("main_app", []);
+
+        main_app.factory('Square_Factory', function() 
+        {
+            return {
+                square: function(a) 
+                {
+                    return a*a;
+                }
+            };
+        });
+
+        main_app.controller('main_controller', function($scope, Square_Factory) 
+        {
+            $scope.square = function(num) 
+            {
+                return Square_Factory.square(num || 0);
+            };
+        });
+    </script>
+</body>
+</html>
