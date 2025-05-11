@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="appname" ng-controller="controllername">
+    <h1>Stduent ka details </h1>
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td>CGPA</td>
+        </tr>
+        <tr ng-repeat="student in students">
+            <td>{{student.name }}</td>
+            <td> {{student.gpa}} </td>
+        </tr>
+    </table>
+    <h3>Student ka length: {{students.length}}</h3>
+    <script>
+        var app = angular.module("appname",[]);
+        app.controller("controllername",function($scope)
+        {
+            $scope.students = [
+                {name: 'Sukhada' , gpa: 9.7 },
+                {name: 'AAshmti', gpa: 5.6}
+            ];
+        });
+    </script>
+</body>
+</html>
