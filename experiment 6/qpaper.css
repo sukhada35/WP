@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('background.jpg') no-repeat center center/cover;
+    height: 100vh;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 20px;
+}
+
+.search-box input {
+    padding: 5px;
+    border-radius: 3px;
+    border: none;
+}
+
+.search-box button {
+    padding: 5px 10px;
+    background-color: green;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+main.content {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 80px;
+}
+
+.left {
+    max-width: 50%;
+}
+
+.left h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.left span {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.left p {
+    margin: 20px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.join-btn {
+    padding: 10px 25px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.right {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 300px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signup-link {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.signup-link a {
+    color: lightgreen;
+    text-decoration: none;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aligned Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        fieldset {
+            padding: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .form-row label {
+            /* flex: 1; */
+            min-width: 150px;
+        }
+
+        .form-row input,
+        .form-row select,
+        .form-row textarea {
+            /* flex: 2; */
+        }
+
+        .form-row textarea {
+            resize: vertical;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>Personal Details:</legend>
+
+            <div class="form-row">
+                <label for="sal">Salutation:</label>
+                <select name="Salutation" id="sal">
+                    <option value="" disabled selected>--None--</option>
+                    <option value="1">Mr</option>
+                    <option value="2">Mrs</option>
+                    <option value="3">Ms</option>
+                    <option value="4">Master</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname">
+            </div>
+
+            <div class="form-row">
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname">
+            </div>
+
+            <div class="form-row">
+                <label>Gender:</label>
+                <input type="radio" name="gender" id="male"> Male
+                <input type="radio" name="gender" id="female" style="margin-left: 10px;"> Female
+            </div>
+
+            <div class="form-row">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <div class="form-row">
+                <label for="birthday">Date of Birth:</label>
+                <input type="date" id="birthday" name="birthday">
+            </div>
+
+            <div class="form-row">
+                <label for="add">Address:</label>
+                <textarea name="Address" id="add" rows="4" cols="35"></textarea>
+            </div>
+
+            <div class="buttons">
+                <input type="submit" value="Submit">
+                <button type="submit">Register</button>
+            </div>
+
+        </fieldset>
+    </form>
+</body>
+
+</html>

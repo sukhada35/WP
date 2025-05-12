@@ -5,6 +5,7 @@ body {
     background-image: url('green.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    /* height: 100vh; */
 }
  
 nav {
@@ -67,7 +68,7 @@ nav {
 button {
     background-color: green;
     margin-top: 20px;
-    margin-left: 640px;
+    margin-left: 300px;
     padding: 15px;
     border: none;
     border-radius: 2px;

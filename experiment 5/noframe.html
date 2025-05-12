@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>No Frames</title>
+    <title>Frames Example</title>
 </head>
-<body>
-    <h2>Your browser does not support frames.</h2>
-    <p>Please use a modern browser that supports frames.</p>
-</body>
+<frameset rows="50%, 50%">
+    <frame src="menu.html" name="menu" />
+    <frame src="menu.html" name="content" />
+    <noframes>
+        <body>
+            <h2>Your browser does not support frames.</h2>
+            <p>Please use a modern browser that supports frames.</p>
+        </body>
+    </noframes>
+</frameset>
 </html>
