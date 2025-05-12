@@ -1,0 +1,15 @@
+// File: fileReadWrite.js
+
+const fs = require('fs');
+
+// Create a file and write content
+fs.writeFile('myfile.txt', 'Hello! This is content written by Node.js.', (err) => {
+  if (err) throw err;
+  console.log('File created and content written.');
+
+  // Read the content back
+  fs.readFile('myfile.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log('File content:', data);
+  });
+});
